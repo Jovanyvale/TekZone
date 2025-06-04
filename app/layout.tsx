@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { montserrat } from "./ui/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +15,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.className} antialiased`}
       >
+        <div className="h-20 md:h-35 relative overflow-hidden flex items-center justify-center md:justify-between content-between">
+          <div className="md:p-8">
+            <h1 className="text-3xl md:text-6xl text-white font-bold ">Tek<span className="text-blue-400">Zone</span></h1>
+          </div>
+          <div className="hidden md:flex gap-6 p-8 font-semibold">
+            <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Products</a>
+            <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">About</a>
+            <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Contact</a>
+          </div>
+        </div>
         {children}
+        <footer className="bg-blue-400">
+          <p>Footer</p>
+        </footer>
       </body>
-    </html>
+    </html >
   );
 }
