@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { getData } from "../lib/fetchData"
 export default function Product() {
 
     return (
@@ -13,6 +14,7 @@ export default function Product() {
                 />
                 <p className="text-slate-800 my-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum vero architecto ea ullam deserunt, voluptate veniam</p>
                 <button className="bg-blue-400 rounded-2xl p-2">Add to cart</button>
+                <button onClick={getData}>Fetch</button>
             </div>
         </>
     )

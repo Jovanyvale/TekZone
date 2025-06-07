@@ -2,9 +2,6 @@
 import { getData } from "../lib/fetchData"
 import Product from "../components/product"
 export default function ManagementPage() {
-
-
-
     return (
         <>
             <main className="flex flex-col">
