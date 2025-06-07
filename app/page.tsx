@@ -51,7 +51,7 @@ export default function Home() {
             <div className="flex flex-col z-10 relative w-3/5 justify-center h-full ml-5">
               <p className="font-bold text mb-2">BEST SELLER</p>
               <h3 className="font-bold text-red-600 text-xl text-shadow-md text-shadow-black">HyperX Pulsefire</h3>
-              <p className=" font-semibold text-white">Lorem ipsum dolor sit amet consectetur adipisicing elitt</p>
+              <p className=" font-semibold text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
             </div>
             <Image src={"/images/bestSellers/hyperx_pulsefire_image.png"}
               alt="g502"
@@ -61,7 +61,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
 
       <Product />
     </div>
