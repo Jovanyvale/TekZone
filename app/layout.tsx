@@ -17,7 +17,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} antialiased`}
       >
-        <div className="h-20 md:h-35 relative overflow-hidden flex items-center justify-center md:justify-between content-between">
+        <header className="h-20 md:h-35 relative overflow-hidden flex items-center justify-center md:justify-between content-between">
           <div className="md:p-8">
             <h1 className="text-3xl md:text-6xl text-white font-bold ">Tek<span className="text-blue-400">Zone</span></h1>
           </div>
@@ -26,8 +26,10 @@ export default function RootLayout({
             <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">About</a>
             <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Contact</a>
           </div>
-        </div>
+        </header>
+
         {children}
+
         <footer className="bg-blue-400">
           <p>Footer</p>
         </footer>

@@ -4,7 +4,7 @@ export async function getData() {
             method: "GET"
         })
         const json = await res.json()
-        console.log(json)
+        return (json.data)
     } catch (error) {
         console.log(error)
     }

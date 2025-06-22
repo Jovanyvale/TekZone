@@ -1,6 +1,6 @@
 'use client'
 import { getData } from "../lib/fetchData"
-import Product from "../components/product"
+import Product from "../components/Product"
 export default function ManagementPage() {
     return (
         <>

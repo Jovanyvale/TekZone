@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.product {
+  filter: drop-shadow(5 10 8px rgba(0, 0, 0, 0.9));
+}
