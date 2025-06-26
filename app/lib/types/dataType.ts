@@ -10,3 +10,8 @@ export type ProductType = {
 export type Data = ProductType & {
     id: number;
 }
+
+export type ApiResponse = {
+    data: Data[];
+    status: number
+}
