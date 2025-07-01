@@ -146,21 +146,71 @@ export default function Home() {
       </div>
 
       {/** Members Club Banner */}
-      <div className="flex flex-col lg:w-[75%] w-[90%] items-center justify-center relative overflow-hidden mx-auto mt-12 rounded-3xl">
-        <div>
-          <div className="absolute">
-            <h2>Members <span className="">Club</span></h2>
-          </div>
+      <div className="flex flex-col lg:w-[75%] w-[90%] items-center justify-center relative overflow-hidden mx-auto mt-12 rounded-3xl border-4">
+        <div className="relative ">
           <Image src={"/images/banners/memberClubBanner.png"}
             alt="Member club banner"
             height={750}
             width={1600}
-            className="object-cover"
+            className="object-cover lg:h-[500px] h-[300px]"
           />
+          <div className="flex flex-col absolute justify-center inset-0 mx-[10%]">
+            <p className="text-xl">Join our</p>
+            <h2 className="md:text-6xl text-3xl font-bold">Members <span className="text-orange-400">Club</span></h2>
+            <p className="md:text-xl" >Get member-only discounts on top tech picks!</p>
+          </div>
         </div>
 
-        <div className="lg:h-26 h-12 w-full bg-neutral-600">
-          <p>Hola</p>
+        <div className="lg:h-[330px] sm:h-[500px] h-[900px] w-full bg-white">
+          <div className="h-full flex flex-col justify-between">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 w-[90%] self-center gap-6 mt-8">
+              <div className="place-items-center max-w-[250px] place-self-center">
+                <Image src="/images/banners/svg/box-svgrepo-com.svg"
+                  alt="bag"
+                  height={80}
+                  width={80}
+                  className="bg-neutral-900 border-3 border-blue-300 rounded-xl"
+                />
+                <h3 className="text-blue-700 font-semibold mt-2">Priority delivery</h3>
+                <p className="text-neutral-700 text-center">Get your tech gear delivered quickly with reliable shipping.</p>
+              </div>
+              <div className="place-items-center max-w-[250px] place-self-center">
+                <Image src="/images/banners/svg/chat-round-svgrepo-com.svg"
+                  alt="bag"
+                  height={80}
+                  width={80}
+                  className=" bg-neutral-900 border-3 border-blue-300 rounded-xl p-2"
+                />
+                <h3 className="text-blue-700 font-semibold mt-2">Customer support</h3>
+                <p className="text-neutral-700 text-center">Enhanced security features for club shoppers</p>
+              </div>
+              <div className="place-items-center max-w-[250px] place-self-center">
+                <Image src="/images/banners/svg/check-square-svgrepo-com.svg"
+                  alt="bag"
+                  height={80}
+                  width={80}
+                  className="bg-neutral-900 border-3 border-blue-300 rounded-xl p-2"
+                />
+                <h3 className="text-blue-700 font-semibold mt-2">Secure delivery</h3>
+                <p className="text-neutral-700 text-center">Benefit from insured, fast shipping for members only</p>
+              </div>
+              <div className="place-items-center max-w-[250px] place-self-center">
+                <Image src="/images/banners/svg/hand-money-svgrepo-com.svg"
+                  alt="bag"
+                  height={80}
+                  width={80}
+                  className="bg-neutral-900 border-3 border-blue-300 rounded-xl p-2"
+                />
+                <h3 className="text-blue-700 font-semibold mt-2">Exclusive discounts</h3>
+                <p className="text-neutral-700 text-center">Unlock member-only pricing on top tech</p>
+              </div>
+            </div>
+            <div className="flex md:flex-row flex-col justify-between w-[90%] self-center mb-[15px]">
+              <p className="text-black">Terms and conditions apply. <span className="text-blue-300 underline hover:cursor-pointer">Learn more.</span></p>
+              <button className="p-3 rounded-2xl bg-blue-400 text-white md:text-lg font-semibold">Join Members Club</button>
+            </div>
+          </div>
+
         </div>
       </div>
 
