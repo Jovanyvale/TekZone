@@ -15,3 +15,7 @@ export type ApiResponse = {
     data: Data[];
     status: number
 }
+
+export type Message = {
+    message: string
+}

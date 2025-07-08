@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 import { montserrat } from "./ui/fonts";
 
@@ -22,7 +23,7 @@ export default function RootLayout({
             <h1 className="text-3xl md:text-6xl text-white font-bold ">Tek<span className="text-blue-400">Zone</span></h1>
           </div>
           <div className="hidden md:flex gap-6 p-8 font-semibold">
-            <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Products</a>
+            <Link href={'/'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Products</Link>
             <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">About</a>
             <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Contact</a>
           </div>

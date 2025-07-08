@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
 import Product from "./components/Product";
+import LogoContainers from "./components/LogoContainers";
 import { getData } from "./lib/fetchData";
 import { useEffect, useState } from "react";
 import type { Data, ApiResponse } from "./lib/types/dataType";
+import LoadingMessage from "./components/LoadingMessage";
 
 export default function Home() {
 
@@ -97,6 +99,7 @@ export default function Home() {
               {products.slice(0, 6).map((product: Data) => (
                 <Product
                   key={product.id}
+                  id={product.id}
                   name={product.name}
                   price={product.price}
                   description={product.description}
@@ -106,9 +109,7 @@ export default function Home() {
                 />))}
             </div>
 
-            : <div className="flex flex-col justify-items-center place-content-center lg:col-start-2">
-              <p className="w-full place-self-center text-center loadingText text-xl md:my-70 my-52">Loading products...</p>
-            </div>
+            : <LoadingMessage message={"Loading products..."} />
         }
 
         {/* Delivery Banner */}
@@ -205,15 +206,17 @@ export default function Home() {
                 <p className="text-neutral-700 text-center">Unlock member-only pricing on top tech</p>
               </div>
             </div>
-            <div className="flex md:flex-row flex-col justify-between w-[90%] self-center mb-[15px]">
+            <div className="flex md:flex-row flex-col justify-between items-end w-[90%] self-center mb-[15px]">
               <p className="text-black">Terms and conditions apply. <span className="text-blue-300 underline hover:cursor-pointer">Learn more.</span></p>
               <button className="p-3 rounded-2xl bg-blue-400 text-white md:text-lg font-semibold">Join Members Club</button>
             </div>
           </div>
-
         </div>
       </div>
 
+      <div className="my-20">
+        <LogoContainers />
+      </div>
     </main >
   );
 }

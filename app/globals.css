@@ -44,3 +44,19 @@ body {
     text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
   }
 }
+
+.animated {
+  opacity: 1;
+  transform: translate(0, 0px) scale(1);
+  animation: carrousel 5s linear infinite;
+}
+
+@keyframes carrousel {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-80%);
+  }
+}
