@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import { montserrat } from "./ui/fonts";
+import DisplayMenu from "./components/DisplayMenu";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,21 +20,74 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} antialiased`}
       >
-        <header className="h-20 md:h-35 relative overflow-hidden flex items-center justify-center md:justify-between content-between">
-          <div className="md:p-8">
-            <h1 className="text-3xl md:text-6xl text-white font-bold ">Tek<span className="text-blue-400">Zone</span></h1>
-          </div>
-          <div className="hidden md:flex gap-6 p-8 font-semibold">
-            <Link href={'/'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Products</Link>
-            <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">About</a>
-            <a className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Contact</a>
-          </div>
-        </header>
+
+        <DisplayMenu />
 
         {children}
 
-        <footer className="bg-blue-400">
-          <p>Footer</p>
+        <footer className="bg-neutral-950 pt-20 pb-5">
+          <div className="grid md:grid-cols-2 place-items-center justify-self-center w-[85%] border-b-3 border-neutral-800 pb-8 justify-center-safe">
+            <div className="md:border-r-2 border-0 pr-4 border-blue-300 mb-10 md:mb-0 text-center self-center">
+              <h3 className="font-bold text-md">Get upgrade</h3>
+              <p className="font-semibold text-md">Transform your exprience with the newest gadgets</p>
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-4 w-[100%] justify-around items-center">
+              <div className="flex flex-col md:w-[30%] w-[60%] items-center">
+                <Image src="/images/footer/support.svg"
+                  alt="support"
+                  width={55}
+                  height={55} />
+
+                <p className="text-center">Become client and get 24/7 support</p>
+              </div>
+
+              <div className="flex flex-col md:w-[30%] w-[60%] items-center">
+                <Image src="/images/footer/delivery.svg"
+                  alt="delivery"
+                  width={55}
+                  height={55} />
+
+                <p className="text-center">Delivery to the whole country</p>
+              </div>
+
+              <div className="flex flex-col md:w-[30%] w-[60%] items-center">
+                <Image src="/images/footer/payment.svg"
+                  alt="payment"
+                  width={55}
+                  height={55} />
+
+                <p className="text-center">Choose from many payment options</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 grid-cols-1 place-items-center my-14">
+            <div className="flex flex-col place-items-center text-center md:mb-0 mb-8">
+              <h3 className="mb-4 font-bold">Navigation</h3>
+              <div className="flex md:flex-row flex-col gap-4">
+                <Link href={'/products'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2 underline">Products</Link>
+                <Link href={'/about'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2 underline">About</Link>
+                <Link href={'/contact'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2 underline">Contact</Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <h3 className="font-bold text-lg text-center">Subscribe</h3>
+              <p className="mb-2">to get news about new products and promos</p>
+              <input className="border-1 border-white rounded-md h-12 mb-4 p-4" type="text" placeholder="E-mail" />
+              <button className="bg-blue-700 rounded-md h-8">Submit</button>
+            </div>
+          </div>
+
+          <div className="flex items-center place-content-center gap-2">
+            <p>Created by <a href="https://github.com/Jovanyvale" target="blank" className="text-blue-300">Jovany Valenzuela</a></p>
+            <Image src="/images/footer/github.svg"
+              alt="github logo"
+              width={30}
+              height={30}
+            />
+          </div>
         </footer>
       </body>
     </html >

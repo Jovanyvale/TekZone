@@ -1,7 +1,7 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import Product from "./components/Product";
-import LogoContainers from "./components/LogoContainers";
 import { getData } from "./lib/fetchData";
 import { useEffect, useState } from "react";
 import type { Data, ApiResponse } from "./lib/types/dataType";
@@ -96,7 +96,7 @@ export default function Home() {
         {
           productsStatus == 200
             ? <div className="grid lg:grid-cols-3 sm:grid-cols-2 place-items-center w-full lg:w-11/12 my-12">
-              {products.slice(0, 6).map((product: Data) => (
+              {products.slice(0, 9).map((product: Data) => (
                 <Product
                   key={product.id}
                   id={product.id}
@@ -141,13 +141,13 @@ export default function Home() {
           <h1 className="md:text-7xl text-5xl font-bold text-blue-300" >Catalog</h1>
           <p className="font-bold md:text-xl text-center">Check out our tech picks!
             From cool gadgets to must-have gear.</p>
-          <button className="bg-neutral-800 p-4 rounded-3xl text-white font-bold hover:cursor-pointer shadow-black/70 shadow-lg">See the whole catalog</button>
+          <Link href={'/products'} className="bg-neutral-800 p-4 rounded-3xl text-white font-bold hover:cursor-pointer shadow-black/70 shadow-lg">See the whole catalog</Link>
         </div>
         <div className="h-[570px] w-full bg-black/60 absolute"></div>
       </div>
 
       {/** Members Club Banner */}
-      <div className="flex flex-col lg:w-[75%] w-[90%] items-center justify-center relative overflow-hidden mx-auto mt-12 rounded-3xl border-4">
+      <div className="flex flex-col lg:w-[75%] w-[90%] items-center justify-center relative overflow-hidden mx-auto mt-12 rounded-3xl border-4 mb-12">
         <div className="relative ">
           <Image src={"/images/banners/memberClubBanner.png"}
             alt="Member club banner"
@@ -164,7 +164,7 @@ export default function Home() {
 
         <div className="lg:h-[330px] sm:h-[500px] h-[900px] w-full bg-white">
           <div className="h-full flex flex-col justify-between">
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 w-[90%] self-center gap-6 mt-8">
+            <div className="grid lg:grid-cols-4 sm:grid-cols-2 w-[90%] self-center gap-6 mt-8">
               <div className="place-items-center max-w-[250px] place-self-center">
                 <Image src="/images/banners/svg/box-svgrepo-com.svg"
                   alt="bag"
@@ -207,16 +207,15 @@ export default function Home() {
               </div>
             </div>
             <div className="flex md:flex-row flex-col justify-between items-end w-[90%] self-center mb-[15px]">
-              <p className="text-black">Terms and conditions apply. <span className="text-blue-300 underline hover:cursor-pointer">Learn more.</span></p>
+              <p className="text-black mb-6 sm:mb-0 self-center">Terms and conditions apply. <span className="text-blue-300 underline hover:cursor-pointer">Learn more.</span></p>
               <button className="p-3 rounded-2xl bg-blue-400 text-white md:text-lg font-semibold">Join Members Club</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="my-20">
-        <LogoContainers />
-      </div>
+
+
     </main >
   );
 }
