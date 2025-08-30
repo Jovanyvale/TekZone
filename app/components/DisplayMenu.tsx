@@ -2,10 +2,20 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function DisplayMenu() {
 
     const [open, setOpen] = useState(false)
+
+    //Block scroll
+    useEffect(() => {
+        if (open) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+    }, [open]);
 
     return (
         <>
@@ -18,9 +28,16 @@ export default function DisplayMenu() {
                     <Link href={'/products'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Products</Link>
                     <Link href={'/about'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">About</Link>
                     <Link href={'/contact'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">Contact</Link>
+                    <Link href={'/cart'} className=" hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2">
+                        <Image src="/images/header/cart.svg"
+                            alt="cart"
+                            width={30}
+                            height={30}
+                        />
+                    </Link>
                 </div>
 
-                <Link href={'/contact'} className="absolute right-2 hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2 md:hidden">
+                <Link href={'/cart'} className="absolute right-2 hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2 md:hidden">
                     <Image src="/images/header/cart.svg"
                         alt="cart"
                         width={30}
@@ -36,9 +53,9 @@ export default function DisplayMenu() {
                 </div>
             </header >
 
-            <div className={`fixed w-full h-full z-40 transition duration-300 ${open ? "backdrop-blur-xs" : ""}`}>
+            <div className={`absolute w-full h-full z-40 ${open ? "backdrop-blur-xs " : "hidden"}`}>
                 <nav className={`fixed inset-0 flex self-top mt-30 justify-self-center z-50 w-[85%] h-60 bg-[#141414] rounded-lg ${open ? "block" : "hidden"}`}>
-                    <p className="absolute flex right-2 top-2 w-8 h-8 font-extrabold justify-center items-center hover:cursor-pointer"
+                    <p className="absolute flex right-2 top-2 w-8 h-8 bg-neutral-600 rounded-full font-bold justify-center items-center hover:cursor-pointer"
                         onClick={() => setOpen(false)}>X</p>
                     <div className="flex flex-col items-center mx-auto justify-around">
                         <Link href={'/products'} className="hover:text-blue-400 hover:cursor-pointer transition duration-300 p-2"

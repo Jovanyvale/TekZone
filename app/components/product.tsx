@@ -14,7 +14,7 @@ export default function Product({ id, name, price, image }: Data) {
                     />
                 </div>
                 <div className="h-[100] mt-4 flex flex-col w-full place-self-center ml-4">
-                    <h2 className=" font-semibold line-clamp-2">{name}</h2>
+                    <h2 className=" font-semibold line-clamp-2 min-h-5">{name}</h2>
                     <p className="pb-3">$ {price}</p>
                     <Link href={`/products/${id}`} className="bg-white rounded-2xl p-2 text-neutral-800 mt-auto text-sm sm:text-lg font-semibold text-center">View product</Link>
                 </div>
