@@ -11,13 +11,12 @@ export default function Home() {
 
   const [products, setProducts] = useState<Data[]>([]);
   const [productsStatus, setProductsStatus] = useState(0)
-  const [fetchMessage, setFetchMessage] = useState('')
 
   useEffect(() => {
     const disorderData = async () => {
       const result: ApiResponse | undefined = await getData();
       if (!result) {
-        setFetchMessage('Unaviable to load products.')
+        throw new Error("Unaviable to load products")
       } else {
         const data = result.data
         const status = result.status
