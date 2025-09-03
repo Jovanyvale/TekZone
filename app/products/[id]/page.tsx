@@ -11,7 +11,8 @@ import { useCart } from "@/app/context/Context";
 
 export default function ProductPage() {
 
-    const { cart, setCart } = useCart()
+    const { setCart } = useCart()
+
     const apiurl = process.env.NEXT_PUBLIC_API_URL!
     const params = useParams();
     const id = params.id
@@ -19,6 +20,7 @@ export default function ProductPage() {
     const [product, setProduct] = useState<Data | null>(null)
     const [orderQuantity, setOrderQuantity] = useState(1)
     const [buttonMessage, setButtonMessage] = useState("Add to cart")
+    const [clicked, setClicked] = useState(false)
 
     function handleQuantity(action: string) {
         if (action == 'plus') {
@@ -29,20 +31,34 @@ export default function ProductPage() {
         }
     }
 
-    const [clicked, setClicked] = useState(false)
     function handleButton() {
         setClicked(true)
+        setButtonMessage("")
         handleSetOrder()
     }
 
+    useEffect(() => {
+        if (!clicked) return
+        setOrderQuantity(1)
+        const timer = setTimeout(() => {
+            setClicked(false)
+            setButtonMessage("Add to cart")
+        }, 2000)
+
+        return () => clearTimeout(timer)
+    }, [clicked])
+
     function handleSetOrder() {
         if (!product) return
+
+        let message: string = "Not enough stock"
 
         setCart(prevCart => {
             const exist = prevCart.find(item => item.name === product.name)
 
             if (exist) {
                 if (exist.quantity + orderQuantity <= exist.stock) {
+                    message = "Product added"
                     return prevCart.map(item =>
                         item.name === product.name
                             ? { ...item, quantity: item.quantity + orderQuantity }
@@ -53,12 +69,14 @@ export default function ProductPage() {
                 }
             } else {
                 if (orderQuantity <= product.stock) {
+                    message = "Product added"
                     return [...prevCart, { ...product, quantity: orderQuantity }]
                 } else {
                     return prevCart
                 }
             }
         })
+        setButtonMessage(message)
     }
 
     useEffect(() => {
@@ -74,10 +92,6 @@ export default function ProductPage() {
             <LoadingMessage message={"Loading product"} />
         )
     }
-
-    // useEffect(() => {
-    //     console.log('iniciando reseteo')
-    // }, [clicked])
 
     return (
 
@@ -114,14 +128,24 @@ export default function ProductPage() {
                                 className="border-1 h-12 w-8 rounded-r-lg font-bold text-xl hover:cursor-pointer">+</button>
                         </div>
 
-                        <button disabled={clicked} onClick={() => { handleButton() }} className={`p-4 rounded-2xl md:text-lg text-md font-semibold text-neutral-800 hover:cursor-pointer ${clicked ? "bg-green-600" : "bg-blue-300"}`}>
-                            {clicked ? "Product added" : "Add to cart"}
+                        <button
+                            disabled={clicked}
+                            onClick={handleButton}
+                            className={`p-4 rounded-2xl md:text-lg text-md font-semibold text-neutral-800 hover:cursor-pointer 
+                                ${buttonMessage === "Product added"
+                                    ? "bg-green-500"
+                                    : buttonMessage === "Not enough stock"
+                                        ? "bg-red-500"
+                                        : "bg-blue-300"
+                                }`}
+                        >
+                            {buttonMessage}
                         </button>
                     </div>
 
                     <p className="text-sm">{product.description}</p>
                 </div>
             </section >
-        </div>
+        </div >
     )
 }
