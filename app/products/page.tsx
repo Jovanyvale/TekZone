@@ -1,12 +1,14 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { getData } from "../lib/fetchData"
-import type { Data, ApiResponse } from "../lib/types/dataType"
+import type { Data } from "../lib/types/dataType"
 import Product from "../components/Product"
 import LoadingMessage from "../components/LoadingMessage"
+import { useCart } from "../context/Context"
 
 export default function Products() {
+
+    const { data, status } = useCart()
 
     const [products, setProducts] = useState<Data[]>([])
     const [sortedProducts, setSortedProducts] = useState<Data[]>([])
@@ -16,16 +18,13 @@ export default function Products() {
 
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response: ApiResponse | undefined = await getData()
-            const data = response?.data
-            const status = response?.status
+        const fetchData = () => {
             setProducts(data ?? [])
             setSortedProducts(data ?? [])
             setCallStatus(status)
         }
         fetchData()
-    }, [])
+    }, [data, status])
 
     useEffect(() => {
         let filteredProducts: Data[] = [...products]

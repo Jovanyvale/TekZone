@@ -8,7 +8,11 @@ export type ProductType = {
 }
 
 export type Data = ProductType & {
-    id: number;
+    id: number
+}
+export type Cart = ProductType & {
+    id: number
+    quantity: number
 }
 
 export type ApiResponse = {

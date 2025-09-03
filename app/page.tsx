@@ -2,32 +2,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import Product from "./components/Product";
-import { getData } from "./lib/fetchData";
 import { useEffect, useState } from "react";
-import type { Data, ApiResponse } from "./lib/types/dataType";
+import type { Data } from "./lib/types/dataType";
 import LoadingMessage from "./components/LoadingMessage";
+import { useCart } from "./context/Context";
+
 
 export default function Home() {
+
+  const { data, status } = useCart()
 
   const [products, setProducts] = useState<Data[]>([]);
   const [productsStatus, setProductsStatus] = useState(0)
 
   useEffect(() => {
-    const disorderData = async () => {
-      const result: ApiResponse | undefined = await getData();
-      if (!result) {
-        throw new Error("Unaviable to load products")
-      } else {
-        const data = result.data
-        const status = result.status
-        setProducts(data)
-        setProductsStatus(status)
-        const disorderedData = data.sort(() => { return Math.random() - 0.5 })
-        setProducts(disorderedData);
-      }
+    const disorderData = () => {
+      setProducts(data)
+      setProductsStatus(status)
+      const disorderedData = data.sort(() => { return Math.random() - 0.5 })
+      setProducts(disorderedData);
     }
     disorderData();
-  }, []);
+  }, [data, status]);
 
   return (
     <main>
