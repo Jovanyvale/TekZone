@@ -1,9 +1,36 @@
 import Image from "next/image"
-import { Cart } from "../lib/types/dataType"
 import { useCart } from "../context/Context"
-export default function CartProduct({ image, name, price, stock, quantity, description, category }: Cart) {
 
-    const { cart, setCart } = useCart()
+export type CartProductProps = {
+    id: number,
+    image: string,
+    name: string,
+    price: string,
+    stock: number,
+    quantity: number
+}
+export default function CartProduct({ id, image, name, price, stock, quantity }: CartProductProps) {
+
+    const { setCart } = useCart()
+
+    function handleQuantity(action: string) {
+        setCart((prevCart) =>
+            prevCart.map((item) => {
+                if (item.id === id) {
+                    if (action === 'plus') {
+                        return { ...item, quantity: item.quantity + 1 }
+                    } if (action === 'minus') {
+                        return { ...item, quantity: item.quantity - 1 }
+                    }
+                }
+                return item
+            })
+        )
+    }
+
+    function handleDelete(productId: number) {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== productId))
+    }
 
     return (
         <div className="grid md:grid-cols-[160px_1fr_110px_30px] grid-cols-[1fr_2fr] gap-4
@@ -40,6 +67,7 @@ export default function CartProduct({ image, name, price, stock, quantity, descr
                 <Image src={"/images/cartProduct/delete.svg"}
                     alt="delete"
                     fill
+                    onClick={() => handleDelete(Number(id))}
                 />
             </div>
         </div>
