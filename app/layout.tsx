@@ -74,7 +74,7 @@ export default function RootLayout({
                 </div>
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col w-[95%]">
                 <h3 className="font-bold text-lg text-center">Subscribe</h3>
                 <p className="mb-2">to get news about new products and promos</p>
                 <input className="border-1 border-white rounded-md h-12 mb-4 p-4" type="text" placeholder="E-mail" />

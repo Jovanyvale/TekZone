@@ -9,6 +9,7 @@ type orderInfo = {
     email: string,
     phone: string,
     zipcode: string
+    orderid: number
 }
 
 type CartContextType = {
@@ -20,7 +21,8 @@ type CartContextType = {
         name: string,
         email: string,
         phone: string,
-        zipcode: string
+        zipcode: string,
+        orderid: number
     }
     setOrderInfo: React.Dispatch<React.SetStateAction<orderInfo>>
 }
@@ -38,7 +40,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         name: "",
         email: "",
         phone: "",
-        zipcode: ""
+        zipcode: "",
+        orderid: 0
     })
 
     //Add the products to the local storage when a product is added to the state

@@ -2,10 +2,14 @@
 
 import { useCart } from "../context/Context"
 import CartProduct from "../components/CartProduct"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 export default function Cart() {
 
-    const { cart, orderInfo, setOrderInfo } = useCart()
+    const { cart, setOrderInfo } = useCart()
+    const [loadingScreen, setLoadingScreen] = useState(false)
+    const router = useRouter()
 
     const subtotal = cart.reduce((count, item) => count + (Number(item.price) * item.quantity), 0)
 
@@ -14,9 +18,20 @@ export default function Cart() {
         setOrderInfo((prev) => ({ ...prev, [id]: value }))
     }
 
-    function handleSubmit(e) {
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
+        //Set a id to the order
+        setOrderInfo((prev) => ({
+            ...prev,
+            orderid: Math.floor(100000 + Math.random() * 900000),
+        }));
+
+        setLoadingScreen(true)
+
+        setTimeout(() => {
+            router.push("/order")
+        }, 2500);
     }
 
     return (
@@ -35,6 +50,10 @@ export default function Cart() {
                         />
                     ))}
                     <form onSubmit={handleSubmit} className="place-items-center">
+                        {loadingScreen ? <div className="h-full w-full bg-black/40 fixed flex items-center justify-center inset-0">
+                            <svg xmlns="http://www.w3.org/1000/svg" viewBox="0 0 200 200" className="w-[20%] h-[20%]"><circle fill="none" stroke-opacity="1" stroke="#008EFF" stroke-width=".5" cx="100" cy="100" r="0"><animate attributeName="r" calcMode="spline" dur="2" values="1;80" keyTimes="0;1" keySplines="0 .2 .5 1" repeatCount="indefinite"></animate><animate attributeName="stroke-width" calcMode="spline" dur="2" values="0;25" keyTimes="0;1" keySplines="0 .2 .5 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" calcMode="spline" dur="2" values="1;0" keyTimes="0;1" keySplines="0 .2 .5 1" repeatCount="indefinite"></animate></circle></svg>
+                        </div>
+                            : <div></div>}
                         <div className="flex flex-col self-center md:w-[50%] w-[92%] p-4 bg-black/35 rounded-xl gap-3">
                             <div className="flex flex-col">
                                 <label htmlFor="name">Name</label>
