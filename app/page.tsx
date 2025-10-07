@@ -131,7 +131,7 @@ export default function Home() {
       </div>
 
       {/* Catalog Banner */}
-      <div className="h-[570px] bg-[url('/images/background/catalogBanner.png')] bg-fixed bg-center bg-cover flex  flex-col justify-center place-items-center">
+      <div className="h-[570px] bg-[url('/images/background/cb.png')] bg-fixed bg-center bg-cover flex  flex-col justify-center place-items-center">
         <div className="flex flex-col items-center lg:w-[50%] w-[85%] gap-4 z-20">
           <h1 className="md:text-7xl text-5xl font-bold text-blue-300" >Catalog</h1>
           <p className="font-bold md:text-xl text-center">Check out our tech picks!

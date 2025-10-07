@@ -31,9 +31,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
 
-    const [cart, setCart] = useState<Cart[]>(() => {
-        return JSON.parse(localStorage.getItem("cart") || "[]") //Set the cart products from local storage
-    })
+    const [cart, setCart] = useState<Cart[]>([])
     const [data, setData] = useState<Data[]>([])
     const [status, setStatus] = useState<number>(102)
     const [orderInfo, setOrderInfo] = useState({
@@ -43,6 +41,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         zipcode: "",
         orderid: 0
     })
+
+    //Initialize the cart state with the local storage
+    useEffect(() => {
+        const storedCart = localStorage.getItem("cart")
+        if (storedCart) {
+            setCart(JSON.parse(storedCart))
+        }
+    }, [])
 
     //Add the products to the local storage when a product is added to the state
     useEffect(() => {
