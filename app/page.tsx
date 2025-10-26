@@ -14,6 +14,7 @@ export default function Home() {
 
   const [products, setProducts] = useState<Data[]>([]);
   const [productsStatus, setProductsStatus] = useState(0)
+  const [productOfTheDay, setProductOfTheDay] = useState(Math.floor(Math.random() * data.length))
 
   useEffect(() => {
     const disorderData = () => {
@@ -27,17 +28,31 @@ export default function Home() {
 
   return (
     <main>
+      {/*Product of the day*/}
       <div className="h-170 md:h-180 relative overflow-hidden mb-12">
+        <div className="grid grid-cols-5 grid-rows-1 relative z-10 w-full h-full">
+          <div className="flex flex-col self-center justify-self-center text-5xl font-semibold max-w-[570px] col-span-3 gap-3 potd_text">
+            <h2>Product of the day</h2>
+            <h2 className="text-yellow-300 line-clamp-2">{data[productOfTheDay]?.name}</h2>
+            <Link href={"/products/" + data[productOfTheDay]?.id} className="p-2 bg-yellow-300 rounded-md text-center text-black">Explore Product</Link>
+          </div>
+
+          <Image priority={true} alt="product"
+            src={data[productOfTheDay]?.image}
+            width={800}
+            height={800}
+            className="relative self-center justify-self-center col-start-4 col-span-2 drop-shadow-md potd_img"
+          />
+        </div>
         <Image priority={true} src={'/images/pokemon.jpg'}
           alt="wallpaper"
           fill
-          className=" self-center object-cover brightness-30"
+          className=" self-center object-cover brightness-35"
         />
       </div>
 
-
+      {/*Best sellers*/}
       <div className="flex w-11/12 gap-6 flex-col lg:flex-row mx-auto mb-12">
-
         <div className="flex rounded-2xl h-82 w-full overflow-hidden relative">
           <div className="relative h-full w-full">
             <div className="flex flex-col z-10 relative w-3/5 justify-center h-full ml-5 ">
@@ -136,7 +151,7 @@ export default function Home() {
           <h1 className="md:text-7xl text-5xl font-bold text-blue-300" >Catalog</h1>
           <p className="font-bold md:text-xl text-center">Check out our tech picks!
             From cool gadgets to must-have gear.</p>
-          <Link href={'/products'} className="bg-neutral-800 p-4 rounded-3xl text-white font-bold hover:cursor-pointer shadow-black/70 shadow-lg">See the whole catalog</Link>
+          <Link href={'/products'} className="bg-neutral-800 p-4 rounded-3xl text-white font-bold hover:cursor-pointer shadow-black/70 shadow-lg">Explore the whole catalog</Link>
         </div>
         <div className="h-[570px] w-full bg-black/60 absolute"></div>
       </div>

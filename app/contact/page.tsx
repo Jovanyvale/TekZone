@@ -1,6 +1,5 @@
 import Image from "next/image"
-import Link from "next/link"
-export default function About() {
+export default function Contact() {
 
     return (
         <>
@@ -90,40 +89,39 @@ export default function About() {
                 </div>
             </div >
 
-            <h1 className="text-4xl md:text-6xl text-white font-bold text-center mb-5">About us</h1>
-            <div className="self bg-center grid grid-cols-1 md:h-[500px] h-auto bg-zinc-800 lg:grid-cols-2 mb-35">
-                <p className="text-md md:text-xl font-light self-center w-[90%] mx-auto py-8">At TekZone, our mission is to provide cutting-edge computer technology that enhances productivity, creativity, and entertainment. We believe the right equipment can transform your digital experience, whether you are building your dream setup, working from home, or leveling up your gaming.
+            <form action="" className=" flex md:w-[80%] w-[90%] justify-center-safe mx-auto bg-neutral-800 p-6 gap-6 rounded-lg flex-col items-center mb-12">
+                <p className="text-lg font-bold">Send your message</p>
 
-                    Our commitment to innovation, reliability, and customer satisfaction drives everything we do. We strive to offer top-quality products and personalized service to ensure that every purchase helps you get the most out of technology.</p>
-                <div className="w-full h-full relative min-h-[300px]">
-                    <Image src={"/images/about/about_image.jpeg"} alt="about image"
-                        fill
-                        className="object-cover"
-                    />
+                <div className="w-full flex gap-6 md:flex-row flex-col">
+                    <div className="w-full">
+                        <div className="flex flex-col">
+                            <label htmlFor="name">Name</label>
+                            <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="text" id="name" />
+                        </div>
+
+                        <div className="flex flex-col">
+                            <label htmlFor="email">E-mail</label>
+                            <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="email" id="email" />
+                        </div>
+
+                        <div className="flex flex-col">
+                            <label htmlFor="phone">Phone Number</label>
+                            <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="tel" id="phone" pattern="^\d{10}$|^\d{3}[-\s]?\d{3}[-\s]?\d{4}$"
+                                required />
+                        </div >
+                    </div>
+
+                    <div className="w-full">
+                        <textarea
+                            id="comment"
+                            placeholder="Add your message here..."
+                            className="w-full md:h-full h-[200px] outline-0 rounded-md bg-white/10 p-2 resize-none text-left align-top"
+                        ></textarea>
+                    </div>
                 </div>
-            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 mb-35 lg:divide-x lg:gap-0 gap-16 ">
-                <div className="px-6 mx-auto text-center">
-                    <p className="text-2xl font-bold text-yellow-200">5+ Years</p>
-                    <p className="">Our team has been in the business for half a decade. This experience means we understand what it takes to build a high-performance machine and we stand behind every product we sell.</p>
-                </div>
-
-                <div className="px-6 mx-auto text-center ">
-                    <p className="text-2xl font-bold text-blue-400">10+ Tech Brands</p>
-                    <p className="">Our inventory is built on partnerships with industry leaders. We give you access to the best selection of trusted, top-tier components on the market.</p>
-                </div>
-
-                <div className="px-6 mx-auto text-center">
-                    <p className="text-2xl font-bold text-red-400">5000+ Deliveries</p>
-                    <p className="">We are proud to be the trusted supplier for a growing community. This is the number of PC builders and tech enthusiasts who have successfully completed their custom rigs using parts from our store.</p>
-                </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-2 mb-24">
-                <p className="font-bold text-xl">Need help?</p>
-                <Link href={"/contact"} className="p-4 rounded-md bg-yellow-300 w-[200px] md:w-[320px] text-lg font-semibold text-center text-black">Contact us</Link>
-            </div>
+                <button type="submit" className="p-2 bg-blue-300 rounded-md text-black font-semibold">Submit</button>
+            </form>
         </>
     )
 }

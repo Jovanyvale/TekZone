@@ -66,3 +66,28 @@ input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.potd_img,
+.potd_text {
+  left: 200px;
+  opacity: 0;
+  animation: transition 2s ease-out forwards;
+  ;
+}
+
+@keyframes transition {
+  0% {
+    opacity: 0;
+    left: 200px;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}

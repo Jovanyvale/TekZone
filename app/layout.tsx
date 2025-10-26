@@ -28,8 +28,8 @@ export default function RootLayout({
           {children}
 
           <footer className="bg-neutral-950 pt-20 pb-5">
-            <div className="grid md:grid-cols-2 place-items-center justify-self-center w-[85%] border-b-3 border-neutral-800 pb-8 justify-center-safe">
-              <div className="md:border-r-2 border-0 pr-4 border-blue-300 mb-10 md:mb-0 text-center self-center">
+            <div className="grid md:grid-cols-2 place-items-center justify-self-center w-[85%] border-b-3 border-neutral-800 pb-8 justify-center-safe md:divide-x">
+              <div className=" pr-4 w-[90%] mb-10 md:mb-0 text-center self-center">
                 <h3 className="font-bold text-md">Get upgrade</h3>
                 <p className="font-semibold text-md">Transform your exprience with the newest gadgets</p>
               </div>
@@ -74,9 +74,9 @@ export default function RootLayout({
                 </div>
               </div>
 
-              <div className="flex flex-col w-[95%]">
+              <div className="flex flex-col w-[85%]">
                 <h3 className="font-bold text-lg text-center">Subscribe</h3>
-                <p className="mb-2">to get news about new products and promos</p>
+                <p className="mb-2 text-center">to get news about new products and promos</p>
                 <input className="border-1 border-white rounded-md h-12 mb-4 p-4" type="text" placeholder="E-mail" />
                 <button className="bg-blue-700 rounded-md h-8">Submit</button>
               </div>
