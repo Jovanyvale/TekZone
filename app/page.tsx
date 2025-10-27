@@ -14,7 +14,20 @@ export default function Home() {
 
   const [products, setProducts] = useState<Data[]>([]);
   const [productsStatus, setProductsStatus] = useState(0)
-  const [productOfTheDay, setProductOfTheDay] = useState(Math.floor(Math.random() * data.length))
+  const [productOfTheDay, setProductOfTheDay] = useState<number>(0)
+  const [loadPotd, setLoadPotd] = useState(false)
+
+
+  useEffect(() => {
+    if (data) {
+      setProductOfTheDay(Math.floor(Math.random() * data.length))
+      setTimeout(() => {
+        setLoadPotd(true)
+      }, 500);
+
+    }
+
+  }, [data])
 
   useEffect(() => {
     const disorderData = () => {
@@ -30,20 +43,23 @@ export default function Home() {
     <main>
       {/*Product of the day*/}
       <div className="h-170 md:h-180 relative overflow-hidden mb-12">
-        <div className="grid grid-cols-5 grid-rows-1 relative z-10 w-full h-full">
-          <div className="flex flex-col self-center justify-self-center text-5xl font-semibold max-w-[570px] col-span-3 gap-3 potd_text">
-            <h2>Product of the day</h2>
-            <h2 className="text-yellow-300 line-clamp-2">{data[productOfTheDay]?.name}</h2>
-            <Link href={"/products/" + data[productOfTheDay]?.id} className="p-2 bg-yellow-300 rounded-md text-center text-black">Explore Product</Link>
-          </div>
 
-          <Image priority={true} alt="product"
-            src={data[productOfTheDay]?.image}
-            width={800}
-            height={800}
-            className="relative self-center justify-self-center col-start-4 col-span-2 drop-shadow-md potd_img"
-          />
-        </div>
+        {loadPotd == true && (
+          <div className="grid grid-cols-5 grid-rows-1 relative z-10 w-full h-full ">
+            <div className="flex flex-col self-center justify-self-center text-5xl font-semibold max-w-[570px] col-span-3 gap-3 potd_text">
+              <h2>Product of the day</h2>
+              <h2 className="text-yellow-300 line-clamp-2">{data[productOfTheDay]?.name}</h2>
+              <Link href={"/products/" + data[productOfTheDay]?.id} className="p-2 bg-yellow-300 rounded-md text-center text-black">Explore Product</Link>
+            </div>
+
+            <Image priority={true} alt="product" src={data[productOfTheDay]?.image}
+              width={800}
+              height={800}
+              className="relative self-center justify-self-center col-start-4 col-span-2 drop-shadow-md potd_img"
+            />
+          </div>
+        )}
+
         <Image priority={true} src={'/images/pokemon.jpg'}
           alt="wallpaper"
           fill

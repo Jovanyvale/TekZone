@@ -71,7 +71,7 @@ input[type=number]::-webkit-inner-spin-button {
 .potd_text {
   left: 200px;
   opacity: 0;
-  animation: transition 2s ease-out forwards;
+  animation: transition 0.5s ease-out forwards;
   ;
 }
 
