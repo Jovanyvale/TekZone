@@ -1,6 +1,6 @@
 "use client"
 import { useCart } from "../context/Context"
-import OrderProduct from "../components/OrderProduct"
+import OrderProduct from "../../components/OrderProduct"
 import Link from "next/link"
 
 export default function Order() {

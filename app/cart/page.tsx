@@ -1,7 +1,7 @@
 'use client'
 
 import { useCart } from "../context/Context"
-import CartProduct from "../components/CartProduct"
+import CartProduct from "../../components/CartProduct"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 

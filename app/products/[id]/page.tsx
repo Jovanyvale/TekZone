@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getProduct } from "@/app/lib/fetchData";
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react";
-import LoadingMessage from "@/app/components/LoadingMessage";
+import LoadingMessage from "@/components/LoadingMessage";
 import Link from "next/link";
 import { useCart } from "@/app/context/Context";
 

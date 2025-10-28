@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Product from "./components/Product";
+import Product from "../components/Product";
 import { useEffect, useState } from "react";
 import type { Data } from "./lib/types/dataType";
-import LoadingMessage from "./components/LoadingMessage";
+import LoadingMessage from "../components/LoadingMessage";
 import { useCart } from "./context/Context";
 
 

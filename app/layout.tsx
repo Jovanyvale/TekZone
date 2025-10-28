@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import { montserrat } from "./ui/fonts";
-import DisplayMenu from "./components/DisplayMenu";
+import DisplayMenu from "../components/DisplayMenu";
 import { CartProvider } from "./context/Context";
 
 export const metadata: Metadata = {

@@ -1,4 +1,4 @@
-import type { Message } from "../lib/types/dataType"
+import type { Message } from "../app/lib/types/dataType"
 
 export default function LoadingMessage({ message }: Message) {
 

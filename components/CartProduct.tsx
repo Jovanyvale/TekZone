@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { useCart } from "../context/Context"
+import { useCart } from "../app/context/Context"
 
 export type CartProductProps = {
     id: number,

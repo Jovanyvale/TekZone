@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import type { Data } from "../lib/types/dataType"
-import Product from "../components/Product"
-import LoadingMessage from "../components/LoadingMessage"
-import { useCart } from "../context/Context"
+import { useEffect, useState } from "react";
+import type { Data } from "../lib/types/dataType";
+import Product from "../../components/Product";
+import LoadingMessage from "../../components/LoadingMessage";
+import { useCart } from "../context/Context";
 
 export default function Products() {
 

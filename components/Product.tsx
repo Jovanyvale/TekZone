@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Data } from "../lib/types/dataType"
+import { Data } from "../app/lib/types/dataType"
 
 export default function Product(props: Data) {
     const { id, name, price, image } = props
