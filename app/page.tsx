@@ -45,8 +45,8 @@ export default function Home() {
       <div className="h-170 md:h-180 relative overflow-hidden mb-12">
 
         {loadPotd == true && (
-          <div className="grid grid-cols-5 grid-rows-1 relative z-10 w-full h-full ">
-            <div className="flex flex-col self-center justify-self-center text-5xl font-semibold max-w-[570px] col-span-3 gap-3 potd_text">
+          <div className="grid lg:grid-cols-5 lg:grid-rows-1 grid-row-2 relative z-10 lg:w-full lg:h-full h-full lg:gap-0 gap-10 w-[90%] justify-self-center content-center items-center grid-flow-row">
+            <div className="flex flex-col self-center justify-self-center lg:text-5xl text-2xl font-semibold max-w-[570px] lg:col-span-3 gap-3 potd_text">
               <h2>Product of the day</h2>
               <h2 className="text-yellow-300 line-clamp-2">{data[productOfTheDay]?.name}</h2>
               <Link href={"/products/" + data[productOfTheDay]?.id} className="p-2 bg-yellow-300 rounded-md text-center text-black">Explore Product</Link>
@@ -55,12 +55,12 @@ export default function Home() {
             <Image priority={true} alt="product" src={data[productOfTheDay]?.image}
               width={800}
               height={800}
-              className="relative self-center justify-self-center col-start-4 col-span-2 drop-shadow-md potd_img"
+              className="relative self-center justify-self-center lg:col-start-4 lg:col-span-2 drop-shadow-md potd_img lg:w-full w-[470px]"
             />
           </div>
         )}
 
-        <Image priority={true} src={'/images/pokemon.jpg'}
+        <Image priority={true} src={'/images/BackgroundGray.png'}
           alt="wallpaper"
           fill
           className=" self-center object-cover brightness-35"
@@ -173,7 +173,7 @@ export default function Home() {
       </div>
 
       {/** Members Club Banner */}
-      <div className="flex flex-col lg:w-[75%] w-[90%] items-center justify-center relative overflow-hidden mx-auto mt-12 rounded-3xl border-4 mb-12">
+      <div className="flex flex-col lg:w-[75%] w-[95%] items-center justify-center relative overflow-hidden mx-auto mt-12 rounded-3xl border-4 mb-12">
         <div className="relative ">
           <Image src={"/images/banners/memberClubBanner.png"}
             alt="Member club banner"
