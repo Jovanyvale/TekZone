@@ -57,26 +57,26 @@ export default function Cart() {
                         <div className="flex flex-col self-center md:w-[50%] w-[92%] p-4 bg-black/35 rounded-xl gap-3">
                             <div className="flex flex-col">
                                 <label htmlFor="name">Name</label>
-                                <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="text" id="name"
+                                <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0" type="text" id="name"
                                     onChange={handleChange} />
                             </div>
 
                             <div className="flex flex-col">
                                 <label htmlFor="email">E-mail</label>
-                                <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="email" id="email"
+                                <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0" type="email" id="email"
                                     onChange={handleChange} />
                             </div>
 
                             <div className="flex flex-col">
                                 <label htmlFor="phone">Phone Number</label>
-                                <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="tel" id="phone" pattern="^\d{10}$|^\d{3}[-\s]?\d{3}[-\s]?\d{4}$"
+                                <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0" type="tel" id="phone" pattern="^\d{10}$|^\d{3}[-\s]?\d{3}[-\s]?\d{4}$"
                                     required
                                     onChange={handleChange} />
                             </div >
 
                             <div className="flex flex-col">
                                 <label htmlFor="zipcode">Zip Code</label>
-                                <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0 appearance-none" type="number" id="zipcode"
+                                <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0 appearance-none" type="number" id="zipcode"
                                     onChange={handleChange} />
                             </div>
                         </div>

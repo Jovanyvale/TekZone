@@ -96,17 +96,17 @@ export default function Contact() {
                     <div className="w-full">
                         <div className="flex flex-col">
                             <label htmlFor="name">Name</label>
-                            <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="text" id="name" />
+                            <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0" type="text" id="name" />
                         </div>
 
                         <div className="flex flex-col">
                             <label htmlFor="email">E-mail</label>
-                            <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="email" id="email" />
+                            <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0" type="email" id="email" />
                         </div>
 
                         <div className="flex flex-col">
                             <label htmlFor="phone">Phone Number</label>
-                            <input className="bg-white/10 h-8 p-1 w-[100%] rounded-md invalid:outline-red-500 outline-0" type="tel" id="phone" pattern="^\d{10}$|^\d{3}[-\s]?\d{3}[-\s]?\d{4}$"
+                            <input className="bg-white/10 h-8 p-1 w-full rounded-md invalid:outline-red-500 outline-0" type="tel" id="phone" pattern="^\d{10}$|^\d{3}[-\s]?\d{3}[-\s]?\d{4}$"
                                 required />
                         </div >
                     </div>

@@ -34,7 +34,7 @@ export default function RootLayout({
                 <p className="font-semibold text-md">Transform your exprience with the newest gadgets</p>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-4 w-[100%] justify-around items-center">
+              <div className="flex flex-col md:flex-row gap-4 w-full justify-around items-center">
                 <div className="flex flex-col md:w-[30%] w-[60%] items-center">
                   <Image src="/images/footer/support.svg"
                     alt="support"
